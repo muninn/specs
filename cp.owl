@@ -1,0 +1,66 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<rdf:RDF
+    xmlns       ="http://rdf.muninn-project.org/ontologies/cp#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:foaf="http://xmlns.com/foaf/spec/"
+    xmlns:dbpedia="http://dbpedia.org/resource/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:time = "http://www.w3.org/2006/time#"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    xmlns:cc = "http://creativecommons.org/ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:olo="http://purl.org/ontology/olo/core#"
+    xmlns:vann="http://purl.org/vocab/vann/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xml:base="http://rdf.muninn-project.org/ontologies/cp">
+
+  <owl:Ontology rdf:about="">
+   <foaf:name>Control Point</foaf:name>
+   <dc:title>A simple control point Ontology</dc:title>
+   <dc:description>A simple data structure to link up a pixel in an image to a location to warp / reproject a map image.</dc:description>
+   <rdfs:label xml:lang="en">Control Point Ontology</rdfs:label>
+   <dc:rights rdf:resource="http://creativecommons.org/licenses/by/3.0/"/> 
+   <vs:term_status>Testing</vs:term_status>
+   <dc:creator rdf:resource="http://rdf.muninn-project.org/ww1/2011/11/11/Person/Warren"/> 
+ </owl:Ontology>
+
+ <owl:Class rdf:ID="ControlPoint">
+  <foaf:name>ControlPoint</foaf:name>
+  <rdfs:label xml:lang="en">ControlPoint</rdfs:label>
+  <rdfs:comment xml:lang="en">Relates point in an image to a feature / point in the real world(tm).</rdfs:comment>
+ </owl:Class>
+
+<owl:DatatypeProperty rdf:ID="xPixel">
+ <foaf:name>X</foaf:name>
+ <rdfs:label xml:lang="en">X</rdfs:label>
+ <rdfs:comment xml:lang="en">X location of the pixel, index 0, starting from the top left corner of the image.</rdfs:comment>
+ <rdfs:domain rdf:resource="ControlPoint"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:ID="yPixel">
+ <foaf:name>Y</foaf:name>
+ <rdfs:label xml:lang="en">Y</rdfs:label>
+ <rdfs:comment xml:lang="en">Y location of the pixel, index 0, starting from the top left corner of the image.</rdfs:comment>
+ <rdfs:domain rdf:resource="ControlPoint"/>
+</owl:DatatypeProperty>
+
+<owl:ObjectProperty rdf:ID="feature">
+ <foaf:name>Feature</foaf:name>
+ <rdfs:label xml:lang="en">Feature</rdfs:label>
+ <rdfs:domain rdf:resource="ControlPoint"/>
+ <rdfs:comment xml:lang="en">Feature that this control point references. Can be a geometry or a feature with a geometry.</rdfs:comment>  
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:ID="image">
+ <foaf:name>Image</foaf:name>
+ <rdfs:label xml:lang="en">Image</rdfs:label>
+ <rdfs:domain rdf:resource="ControlPoint"/>
+ <rdfs:comment xml:lang="en">The image that this control point is in.</rdfs:comment>  
+</owl:ObjectProperty>
+
+</rdf:RDF>
